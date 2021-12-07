@@ -5,7 +5,7 @@ pipeline{
         {
             steps{
                 sh 'mvn surefire-report:report '
-                junit '**/target/*.xml' 
+                junit '**/target/surefire-reports/*.xml' 
             }
         }
     }
