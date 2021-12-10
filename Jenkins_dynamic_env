@@ -1,0 +1,18 @@
+pipeline{
+    agent any
+    environment{
+        CC = """
+        ${sh (returnStdout: true, script: 'echo "done is it?"')}
+        """
+       EXIT_STATUS = """
+        ${sh (returnStatus: true, script: 'echo "done"')}
+        """
+    }
+    stages{
+    stage("Output"){
+        steps{
+            sh 'printenv'
+        }
+    }
+    }
+}
